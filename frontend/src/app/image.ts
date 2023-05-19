@@ -1,6 +1,6 @@
 export interface Image{
-  id: number;
+  _id: number;
   src: string;
   caption: string;
-  timestamp: Date;
+  timestamp: string;
 }

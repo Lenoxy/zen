@@ -26,8 +26,8 @@ export class BackendService implements OnInit {
   //
   // }
   //
-  getBulkImage() {
-    return this.httpClient.get<Image>(`http://localhost:3000/p`).toPromise()
+  getBulkImage(): Observable<Image[]>  {
+    return this.httpClient.get<Image[]>(`http://localhost:3000/p`)
   }
 
   getSingleImage(id: string): Observable<Image> {
