@@ -7,25 +7,22 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class BackendService implements OnInit {
-  // @ts-ignore
-  private client: MongoClient
-  private dbName = "zen";
-  // @ts-ignore
-  private db: Db;
+export class BackendService {
 
   constructor(
     private httpClient: HttpClient
   ) {
   }
 
-  async ngOnInit() {
+  uploadImage(imagePngBase64: string, caption: string, passwordHash: string): Observable<boolean> {
+    console.log("sending data...")
+    return this.httpClient.post<boolean>(`http://localhost:3000/add`, {
+      src: imagePngBase64,
+      caption: caption,
+      password: passwordHash
+    });
   }
 
-  // uploadImage(): boolean {
-  //
-  // }
-  //
   getBulkImage(): Observable<Image[]>  {
     return this.httpClient.get<Image[]>(`http://localhost:3000/p`)
   }

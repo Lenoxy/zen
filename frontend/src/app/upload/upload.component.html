@@ -1,1 +1,5 @@
-<p>upload works!</p>
+<input type="text" [(ngModel)]="caption">
+<input type="file"
+       id="file"
+       (change)="uploadImage($event)">
+<button (click)="send()">send</button>

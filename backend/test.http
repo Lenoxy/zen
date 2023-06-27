@@ -3,3 +3,13 @@ GET localhost:3000/p/644e7ca7e1cd37ade040cfbd
 ###
 
 GET localhost:3000/p/
+
+###
+
+POST localhost:3000/add/
+Content-Type: application/json
+
+{
+  "src": 999,
+  "caption": "my cool caption"
+}
