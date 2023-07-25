@@ -16,6 +16,8 @@ services:
   zen-database:
     image: mongo
     restart: always
+    volumes:
+      - ./data-volume:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: lenoxy
       MONGO_INITDB_ROOT_PASSWORD: hallovelo
