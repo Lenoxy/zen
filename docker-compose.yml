@@ -7,12 +7,14 @@ services:
     container_name: zen-frontend
     networks:
       global:
+
   zen-backend:
     build: backend/
     container_name: zen-backend
     networks:
-      zen-server:
+      zen-serverside:
       global:
+
   zen-database:
     image: mongo
     container_name: zen-database
@@ -23,9 +25,9 @@ services:
       MONGO_INITDB_ROOT_USERNAME: lenoxy
       MONGO_INITDB_ROOT_PASSWORD: hallovelo
     networks:
-      zen-server:
+      zen-serverside:
 
 networks:
-  zen-server:
+  zen-serverside:
   global:
     external: true
