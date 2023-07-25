@@ -15,6 +15,7 @@ services:
       global:
   zen-database:
     image: mongo
+    container_name: zen-database
     restart: always
     volumes:
       - ./data-volume:/data/db

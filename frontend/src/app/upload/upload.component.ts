@@ -19,12 +19,6 @@ export class UploadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const username = "admin";
-    this.password = prompt("password")!;
-
-    // connect db
-
-    console.log("hi, admin")
   }
 
   // ts-ignore
