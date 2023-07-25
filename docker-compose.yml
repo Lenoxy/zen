@@ -3,6 +3,7 @@ version: '3'
 services:
   zen-frontend:
     build: frontend/
+    command: -fallback "/index.html"
     container_name: zen-frontend
     networks:
       global:
