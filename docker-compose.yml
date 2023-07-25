@@ -4,11 +4,14 @@ services:
   zen-frontend:
     build: frontend/
     container_name: zen-frontend
+    networks:
+      global:
   zen-backend:
     build: backend/
     container_name: zen-backend
     networks:
       zen-server:
+      global:
   zen-database:
     image: mongo
     restart: always
@@ -20,3 +23,5 @@ services:
 
 networks:
   zen-server:
+  global:
+    external: true
