@@ -44,7 +44,7 @@ connectDB().then(zenCollection => {
 
 async function connectDB() {
     const MongoClient = mongo.MongoClient
-    const client = await MongoClient.connect('mongodb://localhost:27017');
+    const client = await MongoClient.connect('mongodb://zen-database:27017');
     return client.db("zen").collection("zen");
 }
 

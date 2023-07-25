@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  zen-frontend:
+    build: frontend/
+    container_name: zen-frontend
+  zen-backend:
+    build: backend/
+    container_name: zen-backend
+    networks:
+      zen-server:
+  zen-database:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: lenoxy
+      MONGO_INITDB_ROOT_PASSWORD: hallovelo
+    networks:
+      zen-server:
+
+networks:
+  zen-server:
