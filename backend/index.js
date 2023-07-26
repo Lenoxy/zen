@@ -39,12 +39,19 @@ connectDB().then(zenCollection => {
 
     });
     app.listen(3000);
-    console.log("ready")
+    console.log("db connected and ready")
 });
 
 async function connectDB() {
     const MongoClient = mongo.MongoClient
-    const client = await MongoClient.connect('mongodb://lenoxy:hallovelo@zen-database:27017');
+    let connectionString = "";
+    if(process.argv[2] && process.argv[2] === "--prod"){
+        connectionString = "mongodb://lenoxy:hallovelo@zen-database:27017";
+    }else{
+        connectionString = "mongodb://localhost:27017"
+    }
+    console.log(process.argv[2])
+    const client = await MongoClient.connect(connectionString);
     return client.db("zen").collection("zen");
 }
 
