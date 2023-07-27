@@ -50,7 +50,7 @@ async function connectDB() {
     }else{
         connectionString = "mongodb://localhost:27017"
     }
-    console.log(process.argv[2])
+    console.log(`env: ${process.argv[2]}`)
     const client = await MongoClient.connect(connectionString);
     return client.db("zen").collection("zen");
 }
