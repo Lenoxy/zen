@@ -20,8 +20,8 @@ connectDB().then(zenCollection => {
     app.get('/p/', async (req, res) => {
         try {
             console.log("requesting all images")
-            const cursor = await zenCollection.find();
-            cursor.toArray().then(array => res.send(array))
+            const cursor = await zenCollection.find().project({ 'imageBase64': 0 });
+            cursor.toArray().then(array => res.send(array));
 
         } catch (e) {
             res.status(404).send()
@@ -30,7 +30,8 @@ connectDB().then(zenCollection => {
     app.post('/add/', async (req, res) => {
         console.log("adding image with caption: " + req.body.caption)
         await zenCollection.insertOne({
-            src: req.body.src,
+            imageBase64: req.body.imageBase64,
+            thumbnailBase64: req.body.thumbnailBase64,
             caption: req.body.caption,
             timestamp: Date.now()
         })

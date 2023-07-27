@@ -14,12 +14,12 @@ export class BackendService {
   ) {
   }
 
-  uploadImage(imagePngBase64: string, caption: string, passwordHash: string): Observable<boolean> {
+  uploadImage(imageBase64: string, thumbnailBase64: string, caption: string): Observable<boolean> {
     console.log("sending data...")
     return this.httpClient.post<boolean>( `${environment.apiEndpoint}/add`, {
-      src: imagePngBase64,
-      caption: caption,
-      password: passwordHash
+      imageBase64,
+      thumbnailBase64,
+      caption
     });
   }
 

@@ -1,6 +1,6 @@
 <div *ngIf="images" style="width: 100%; display: flex; max-width: 1000px; flex-wrap: wrap; justify-content: center">
   <a *ngFor="let image of images" [href]="'p/' + image._id" class="imageBox" style="margin: 5px">
-    <img  [src]="image.src" [alt]="image.caption" style="width: 100%; min-width: 250px; max-width: 400px">
+    <img  [src]="image.thumbnailBase64" [alt]="image.caption" style="width: 100%; min-width: 250px; max-width: 400px">
   </a>
 </div>
 

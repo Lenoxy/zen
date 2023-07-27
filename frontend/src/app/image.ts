@@ -1,6 +1,7 @@
 export interface Image{
   _id: number;
-  src: string;
+  imageBase64: string;
+  thumbnailBase64: string;
   caption: string;
   timestamp: string;
 }

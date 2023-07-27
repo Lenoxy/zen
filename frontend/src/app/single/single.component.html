@@ -1,5 +1,5 @@
 <div *ngIf="image" >
-  <img [src]="image.src" [alt]="image.caption" style="width: 100%; margin: 0">
+  <img [src]="image.imageBase64" [alt]="image.caption" style="width: 100%; margin: 0">
   <p>{{image.caption}}</p>
   <p>{{image.timestamp | date: 'dd.MM.yyyy'}}</p>
 </div>
